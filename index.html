@@ -4,10 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pesona Bukik Ameh - Pesisir Selatan</title>
+    <!-- Load Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Inter and Playfair Display fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" />
     <style>
       body {
         font-family: 'Inter', sans-serif;
@@ -15,60 +17,78 @@
       .font-display {
         font-family: 'Playfair Display', serif;
       }
+      /* Menggunakan Tailwind Gradient untuk estetika yang lebih baik */
       .hero-bg {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://i.ibb.co.com/nMC1TPXc/Whats-App-Image-2025-10-01-at-23-56-42.jpg');
-        /* Fallback image if the above one fails */
-        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://i.ibb.co.com/nMC1TPXc/Whats-App-Image-2025-10-01-at-23-56-42.jpg');
+        background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://placehold.co/1200x800/222/FFF?text=Bukik+Ameh+Panorama');
+        /* Ganti dengan URL gambar asli Anda */
+        background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://i.ibb.co.com/nMC1TPXc/Whats-App-Image-2025-10-01-at-23-56-42.jpg');
+        background-attachment: fixed; /* Efek parallax sederhana */
+        background-position: center;
+        background-size: cover;
+      }
+      /* Styling untuk kartu paket agar terlihat menonjol */
+      .package-card {
+        transition: all 0.3s ease-in-out;
+      }
+      .package-card:hover {
+        box-shadow: 0 20px 25px -5px rgba(245, 158, 11, 0.3), 0 8px 10px -6px rgba(245, 158, 11, 0.1);
+        transform: translateY(-5px);
+      }
+      /* Custom background untuk section agar terlihat berbeda */
+      #paket {
+        background-color: #fef3c7; /* Warna krem kekuningan */
       }
     </style>
   </head>
   <body class="bg-gray-100 text-gray-800">
     <!-- Header & Navigasi -->
-    <header id="header" class="bg-gray-900/80 text-white fixed w-full top-0 z-50 backdrop-blur-sm transition-all duration-300">
+    <header id="header" class="bg-gray-900/90 text-white fixed w-full top-0 z-50 backdrop-blur-sm transition-all duration-300 shadow-xl">
       <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-        <a href="#" class="text-2xl font-bold font-display tracking-wider">Bukik Ameh</a>
+        <a href="#" class="text-2xl font-bold font-display tracking-wider text-yellow-400">Bukik Ameh</a>
         <nav class="hidden md:flex space-x-8">
-          <a href="#beranda" class="hover:text-yellow-400 transition-colors">Beranda</a>
-          <a href="#tentang" class="hover:text-yellow-400 transition-colors">Tentang</a>
-          <a href="#lokasi" class="hover:text-yellow-400 transition-colors">Lokasi</a>
-          <a href="#destinasi" class="hover:text-yellow-400 transition-colors">Destinasi</a>
-          <a href="#galeri" class="hover:text-yellow-400 transition-colors">Galeri</a>
-          <a href="#paket" class="hover:text-yellow-400 transition-colors">Paket Wisata</a>
+          <a href="#beranda" class="hover:text-yellow-400 transition-colors font-medium">Beranda</a>
+          <a href="#tentang" class="hover:text-yellow-400 transition-colors font-medium">Tentang</a>
+          <a href="#lokasi" class="hover:text-yellow-400 transition-colors font-medium">Lokasi</a>
+          <a href="#destinasi" class="hover:text-yellow-400 transition-colors font-medium">Destinasi</a>
+          <a href="#galeri" class="hover:text-yellow-400 transition-colors font-medium">Galeri</a>
+          <a href="#paket" class="text-yellow-400 border-b-2 border-yellow-400 pb-1 font-medium">Paket Wisata</a>
         </nav>
-        <button id="mobile-menu-button" class="md:hidden">
+        <button id="mobile-menu-button" class="md:hidden p-2 rounded-lg hover:bg-gray-700 transition-colors">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
           </svg>
         </button>
       </div>
       <!-- Mobile Menu -->
-      <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
+      <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 bg-gray-900/90">
         <a href="#beranda" class="block py-2 hover:text-yellow-400 transition-colors">Beranda</a>
         <a href="#tentang" class="block py-2 hover:text-yellow-400 transition-colors">Tentang</a>
         <a href="#lokasi" class="block py-2 hover:text-yellow-400 transition-colors">Lokasi</a>
         <a href="#destinasi" class="block py-2 hover:text-yellow-400 transition-colors">Destinasi</a>
         <a href="#galeri" class="block py-2 hover:text-yellow-400 transition-colors">Galeri</a>
-        <a href="#paket" class="block py-2 hover:text-yellow-400 transition-colors">Paket Wisata</a>
+        <a href="#paket" class="block py-2 text-yellow-400 border-l-2 border-yellow-400 pl-4">Paket Wisata</a>
       </div>
     </header>
 
     <!-- Main Content -->
     <main>
       <!-- Bagian Hero -->
-      <section id="beranda" class="hero-bg h-screen bg-cover bg-center flex items-center justify-center text-white">
-        <div class="text-center px-4">
-          <h1 class="text-5xl md:text-7xl font-display font-bold mb-4 drop-shadow-lg">Selamat Datang di Bukik Ameh</h1>
-          <p class="text-lg md:text-2xl max-w-3xl mx-auto drop-shadow-md">Menyaksikan Pesona Emas Pesisir Selatan dengan Latar Samudera Hindia yang Memukau.</p>
-          <a href="#tentang" class="mt-8 inline-block bg-yellow-500 text-gray-900 font-bold py-3 px-8 rounded-full hover:bg-yellow-400 transition-all duration-300 transform hover:scale-105"> Jelajahi Sekarang </a>
+      <section id="beranda" class="hero-bg min-h-screen bg-cover bg-center flex items-center justify-center text-white pt-20">
+        <div class="text-center px-4 py-20">
+          <h1 class="text-5xl md:text-8xl font-display font-extrabold mb-4 drop-shadow-2xl animate-fade-in-down">Selamat Datang di <span class="text-yellow-400">Bukik Ameh</span></h1>
+          <p class="text-xl md:text-3xl max-w-4xl mx-auto drop-shadow-lg leading-snug">Menyaksikan Pesona Emas Pesisir Selatan dengan Latar Samudera Hindia yang Memukau.</p>
+          <a href="#paket" class="mt-12 inline-block bg-yellow-500 text-gray-900 font-extrabold py-3 px-10 rounded-full hover:bg-yellow-400 transition-all duration-500 transform hover:scale-105 shadow-xl text-lg tracking-wide">
+            Lihat Semua Paket
+          </a>
         </div>
       </section>
 
       <!-- Bagian Tentang -->
-      <section id="tentang" class="py-20 bg-white">
+      <section id="tentang" class="py-24 bg-white">
         <div class="container mx-auto px-6 text-center">
           <h2 class="text-4xl font-display font-bold mb-4 text-gray-900">Tentang Bukik Ameh</h2>
-          <div class="w-24 h-1 bg-yellow-500 mx-auto mb-8"></div>
-          <p class="max-w-3xl mx-auto text-lg text-gray-600 leading-relaxed">
+          <div class="w-20 h-1 bg-yellow-500 mx-auto mb-10 rounded-full"></div>
+          <p class="max-w-4xl mx-auto text-xl text-gray-600 leading-relaxed">
             Bukik Ameh, yang berarti "Bukit Emas" dalam bahasa Minang, adalah sebuah surga tersembunyi di Kabupaten Pesisir Selatan, Sumatera Barat. Dikenal karena padang savananya yang menguning seperti emas saat musim kemarau, bukit ini
             menawarkan panorama 360 derajat yang menakjubkan. Dari puncaknya, Anda bisa menyaksikan hamparan Samudera Hindia yang luas, gugusan pulau-pulau kecil, dan garis pantai yang eksotis. Tempat ini adalah destinasi sempurna untuk
             para pencari ketenangan dan pemburu foto lanskap yang spektakuler.
@@ -77,18 +97,24 @@
       </section>
 
       <!-- Bagian Lokasi -->
-      <section id="lokasi" class="py-20">
+      <section id="lokasi" class="py-24 bg-gray-50">
         <div class="container mx-auto px-6">
           <h2 class="text-4xl font-display font-bold mb-4 text-center text-gray-900">Lokasi Kami</h2>
-          <div class="w-24 h-1 bg-yellow-500 mx-auto mb-12"></div>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-            <div class="text-gray-600 leading-relaxed">
-              <h3 class="text-2xl font-bold text-gray-800 mb-4">Temukan Kami di Pesisir Selatan</h3>
-              <p class="mb-2"><strong>Alamat:</strong> Terletak di Nagari Tarusan, Kecamatan Ampang Pulai Koto XI , Kabupaten Pesisir Selatan, Sumatera Barat.</p>
-              <p class="mb-4">Bukik Ameh dapat diakses dengan mudah dari jalan utama Padang-Painan. Perjalanan menuju puncak akan menyuguhkan pemandangan yang indah di sepanjang jalan.</p>
-              <a href="https://maps.app.goo.gl/CURY6xLKaZc3hYUZA" target="_blank" class="inline-block bg-yellow-500 text-gray-900 font-bold py-2 px-6 rounded-full hover:bg-yellow-400 transition-colors"> Buka di Google Maps </a>
+          <div class="w-20 h-1 bg-yellow-500 mx-auto mb-12 rounded-full"></div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+            <div class="text-gray-600 leading-relaxed p-6 bg-white rounded-xl shadow-lg">
+              <h3 class="text-2xl font-bold text-gray-900 mb-4 border-l-4 border-yellow-500 pl-3">Temukan Kami di Pesisir Selatan</h3>
+              <p class="mb-3 text-lg">
+                <strong>Alamat:</strong> Terletak di Nagari Tarusan, Kecamatan Ampang Pulai Koto XI, Kabupaten Pesisir Selatan, Sumatera Barat.
+              </p>
+              <p class="mb-6">
+                Bukik Ameh dapat diakses dengan mudah. Perjalanan menuju puncak akan menyuguhkan pemandangan yang indah, baik melalui jalur darat (tracking) maupun kombinasi perahu.
+              </p>
+              <a href="https://maps.app.goo.gl/CURY6xLKaZc3hYUZA" target="_blank" class="inline-block bg-gray-800 text-white font-bold py-3 px-8 rounded-full hover:bg-gray-700 transition-colors duration-300 transform hover:shadow-xl">
+                Buka di Google Maps
+              </a>
             </div>
-            <div class="rounded-lg shadow-lg overflow-hidden h-96">
+            <div class="rounded-xl shadow-2xl overflow-hidden h-96">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4743.557004917723!2d100.42697581387903!3d-1.2687980708921238!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2fd35b4bf6625173%3A0x25e89ded1f746f5d!2sBukik%20Ameh!5e0!3m2!1sen!2sid!4v1759340768260!5m2!1sen!2sid"
                 width="100%"
@@ -105,41 +131,41 @@
       </section>
 
       <!-- Bagian Destinasi Unggulan -->
-      <section id="destinasi" class="py-20 bg-white">
+      <section id="destinasi" class="py-24 bg-white">
         <div class="container mx-auto px-6">
           <h2 class="text-4xl font-display font-bold mb-4 text-center text-gray-900">Destinasi Populer</h2>
-          <div class="w-24 h-1 bg-yellow-500 mx-auto mb-12"></div>
+          <div class="w-20 h-1 bg-yellow-500 mx-auto mb-12 rounded-full"></div>
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <!-- Card 1 -->
-            <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
-              <img src="https://i.ibb.co.com/MkHmw0jB/Whats-App-Image-2025-10-01-at-23-50-17-1.jpg" alt="Puncak Utama Bukik Ameh" class="w-full h-48 object-cover" />
+            <!-- Card 1: Puncak Utama Bukik Ameh -->
+            <div class="bg-gray-50 rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-1 transition-transform duration-300 border-t-4 border-yellow-500">
+              <img src="https://i.ibb.co.com/MkHmw0jB/Whats-App-Image-2025-10-01-at-23-50-17-1.jpg" onerror="this.onerror=null;this.src='https://placehold.co/400x300/F59E0B/FFF?text=Puncak+Utama';" alt="Puncak Utama Bukik Ameh" class="w-full h-48 object-cover" />
               <div class="p-6">
-                <h3 class="text-xl font-bold mb-2">Puncak Utama</h3>
-                <p class="text-gray-600">Nikmati pemandangan laut lepas dari titik tertinggi bukit. Angin sepoi-sepoi dan suasana tenang akan menyambut Anda.</p>
+                <h3 class="text-xl font-bold mb-2 text-gray-900">Puncak Utama</h3>
+                <p class="text-gray-600 text-sm">Nikmati pemandangan laut lepas 360 derajat. Spot terbaik untuk melihat Samudera Hindia.</p>
               </div>
             </div>
-            <!-- Card 2 -->
-            <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
-              <img src="https://i.ibb.co.com/PZWZtsn3/Whats-App-Image-2025-10-01-at-23-50-35.jpg" alt="Spot Foto Instagramable" class="w-full h-48 object-cover" />
+            <!-- Card 2: Spot Foto Savana -->
+            <div class="bg-gray-50 rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-1 transition-transform duration-300 border-t-4 border-yellow-500">
+              <img src="https://i.ibb.co.com/PZWZtsn3/Whats-App-Image-2025-10-01-at-23-50-35.jpg" onerror="this.onerror=null;this.src='https://placehold.co/400x300/F59E0B/FFF?text=Savana+Bukit';" alt="Spot Foto Instagramable" class="w-full h-48 object-cover" />
               <div class="p-6">
-                <h3 class="text-xl font-bold mb-2">Spot Foto Savana</h3>
-                <p class="text-gray-600">Abadikan momen di tengah padang rumput keemasan yang ikonik dengan latar belakang birunya lautan.</p>
+                <h3 class="text-xl font-bold mb-2 text-gray-900">Padang Savana Emas</h3>
+                <p class="text-gray-600 text-sm">Abadikan momen di tengah padang rumput keemasan yang ikonik (terutama saat musim kemarau).</p>
               </div>
             </div>
-            <!-- Card 3 -->
-            <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
-              <img src="https://i.ibb.co.com/Vc9RcmLw/Whats-App-Image-2025-10-01-at-23-58-01.jpg" alt="Area Sunset" class="w-full h-48 object-cover" />
+            <!-- Card 3: Area Sunset -->
+            <div class="bg-gray-50 rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-1 transition-transform duration-300 border-t-4 border-yellow-500">
+              <img src="https://i.ibb.co.com/Vc9RcmLw/Whats-App-Image-2025-10-01-at-23-58-01.jpg" onerror="this.onerror=null;this.src='https://placehold.co/400x300/F59E0B/FFF?text=Sunset+View';" alt="Area Sunset" class="w-full h-48 object-cover" />
               <div class="p-6">
-                <h3 class="text-xl font-bold mb-2">Area Sunset Terbaik</h3>
-                <p class="text-gray-600">Saksikan matahari terbenam yang magis, mengubah langit dan lautan menjadi kanvas berwarna jingga.</p>
+                <h3 class="text-xl font-bold mb-2 text-gray-900">View Sunset Magis</h3>
+                <p class="text-gray-600 text-sm">Saksikan matahari terbenam terbaik di Pesisir Selatan dari ketinggian bukit.</p>
               </div>
             </div>
-            <!-- Card 4 -->
-            <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
-              <img src="https://i.ibb.co.com/qFFc43T1/Whats-App-Image-2025-10-01-at-23-58-00-1.jpg" alt="Pantai Terdekat" class="w-full h-48 object-cover" />
+            <!-- Card 4: Jalur Boat (laut) -->
+            <div class="bg-gray-50 rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-1 transition-transform duration-300 border-t-4 border-yellow-500">
+              <img src="https://i.ibb.co.com/qFFc43T1/Whats-App-Image-2025-10-01-at-23-58-00-1.jpg" onerror="this.onerror=null;this.src='https://placehold.co/400x300/F59E0B/FFF?text=Boat+Trip';" alt="Jelajah Pantai Terdekat" class="w-full h-48 object-cover" />
               <div class="p-6">
-                <h3 class="text-xl font-bold mb-2">Jelajah Pantai Terdekat</h3>
-                <p class="text-gray-600">Turun dari bukit dan jelajahi pantai-pantai perawan yang ada di sekitarnya, seperti Pantai Carocok.</p>
+                <h3 class="text-xl font-bold mb-2 text-gray-900">Jalur Perahu & Pantai</h3>
+                <p class="text-gray-600 text-sm">Rasakan sensasi perjalanan pulang dengan perahu (boat) menyusuri pesisir.</p>
               </div>
             </div>
           </div>
@@ -147,86 +173,177 @@
       </section>
 
       <!-- Bagian Galeri -->
-      <section id="galeri" class="py-20">
+      <section id="galeri" class="py-20 bg-gray-100">
         <div class="container mx-auto px-6">
           <h2 class="text-4xl font-display font-bold mb-4 text-center text-gray-900">Galeri Pesona</h2>
-          <div class="w-24 h-1 bg-yellow-500 mx-auto mb-12"></div>
+          <div class="w-20 h-1 bg-yellow-500 mx-auto mb-12 rounded-full"></div>
           <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            <div class="h-64 rounded-lg overflow-hidden">
-              <img src="https://i.ibb.co.com/PGq9WzDc/Whats-App-Image-2025-10-01-at-23-58-00.jpg" alt="Galeri 1" class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-300" />
+            <div class="h-64 rounded-xl shadow-md overflow-hidden hover:opacity-90">
+              <img src="https://i.ibb.co.com/PGq9WzDc/Whats-App-Image-2025-10-01-at-23-58-00.jpg" onerror="this.onerror=null;this.src='https://placehold.co/400x400/808080/FFF?text=Galeri+1';" alt="Galeri 1" class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-500" />
             </div>
-            <div class="h-64 rounded-lg overflow-hidden md:col-span-2">
-              <img src="https://i.ibb.co.com/chrz2yw9/galeri1.jpg" alt="Galeri 2" class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-300" />
+            <div class="h-64 rounded-xl shadow-md overflow-hidden md:col-span-2 hover:opacity-90">
+              <img src="https://i.ibb.co.com/chrz2yw9/galeri1.jpg" onerror="this.onerror=null;this.src='https://placehold.co/800x400/808080/FFF?text=Galeri+2';" alt="Galeri 2" class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-500" />
             </div>
-            <div class="h-64 rounded-lg overflow-hidden">
-              <img src="https://i.ibb.co.com/Vc9RcmLw/Whats-App-Image-2025-10-01-at-23-58-01.jpg"" alt="Galeri 3" class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-300" />
+            <div class="h-64 rounded-xl shadow-md overflow-hidden hover:opacity-90">
+              <img src="https://i.ibb.co.com/Vc9RcmLw/Whats-App-Image-2025-10-01-at-23-58-01.jpg" onerror="this.onerror=null;this.src='https://placehold.co/400x400/808080/FFF?text=Galeri+3';" alt="Galeri 3" class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-500" />
             </div>
-            <div class="h-64 rounded-lg overflow-hidden md:col-span-2">
-              <img src="https://i.ibb.co.com/38LZW75/galeri4.jpg" alt="Galeri 4" class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-300" />
+            <div class="h-64 rounded-xl shadow-md overflow-hidden md:col-span-2 lg:col-span-1 hover:opacity-90">
+              <img src="https://i.ibb.co.com/cXrV2jMk/IMG-20251002-WA0058.jpg" onerror="this.onerror=null;this.src='https://placehold.co/400x400/808080/FFF?text=Galeri+4';" alt="Galeri 4" class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-500" />
+            </div>
+            <div class="h-64 rounded-xl shadow-md overflow-hidden hover:opacity-90">
+                <img src="https://i.ibb.co.com/5hXjJdzp/IMG-20251002-WA0065.jpg" onerror="this.onerror=null;this.src='https://placehold.co/400x400/808080/FFF?text=Galeri+5';" alt="Galeri 5" class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-500" />
+              </div>
+            <div class="h-64 rounded-xl shadow-md overflow-hidden hover:opacity-90">
+            <img src="https://i.ibb.co.com/SDSGjZZn/IMG-20251002-WA0051.jpg" onerror="this.onerror=null;this.src='https://placehold.co/400x400/808080/FFF?text=Galeri+5';" alt="Galeri 5" class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-500" />
             </div>
           </div>
         </div>
       </section>
 
-      <!-- Bagian Paket Wisata -->
-      <section id="paket" class="py-20 bg-white">
+      <!-- BAGIAN PAKET WISATA BARU -->
+      <section id="paket" class="py-24 bg-yellow-50">
         <div class="container mx-auto px-6">
-          <h2 class="text-4xl font-display font-bold mb-4 text-center text-gray-900">Paket Wisata</h2>
-          <div class="w-24 h-1 bg-yellow-500 mx-auto mb-12"></div>
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            <!-- Paket 1 -->
-            <div class="bg-white rounded-lg shadow-lg border-t-4 border-yellow-500 p-8 text-center flex flex-col">
-              <h3 class="text-2xl font-bold mb-2">One Day Trip</h3>
-              <p class="text-4xl font-bold my-4">Rp 250.000<span class="text-lg font-normal">/pax</span></p>
-              <ul class="text-gray-600 mb-8 space-y-2 flex-grow">
-                <li>Transportasi PP</li>
-                <li>Tiket Masuk</li>
-                <li>Makan Siang</li>
-                <li>Air Mineral</li>
-                <li>Dokumentasi</li>
-              </ul>
-              <a href="#" class="mt-auto bg-gray-800 text-white font-bold py-3 px-8 rounded-full hover:bg-gray-700 transition-colors duration-300">Pesan Sekarang</a>
+          <h2 class="text-4xl font-display font-extrabold mb-3 text-center text-gray-900">Pilih Petualanganmu</h2>
+          <p class="text-xl text-center text-gray-600 mb-12">Berbagai paket eksplorasi Bukik Ameh, dari One Day Trip hingga Camping Ground.</p>
+          <div class="max-w-7xl mx-auto">
+            
+            <!-- SECTION ONE DAY TRIP -->
+            <h3 class="text-3xl font-display font-bold text-gray-900 mb-8 border-l-4 border-yellow-600 pl-4">A. One Day Trip (Jalur Menuju Kawasan)</h3>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+              <!-- Paket 1: Tracking (Jalan Kaki) -->
+              <div class="package-card bg-white rounded-xl shadow-2xl overflow-hidden flex flex-col border border-yellow-200">
+                <div class="bg-gray-800 text-white p-6 text-center">
+                  <h4 class="text-2xl font-extrabold">Paket Tracking (PP)</h4>
+                  <p class="text-sm font-medium text-yellow-400">Jalan Kaki Penuh</p>
+                </div>
+                <div class="p-6 flex-grow">
+                  <p class="text-3xl font-extrabold text-yellow-600 text-center mb-4">Mulai Rp 10.000<span class="text-base font-normal text-gray-500">/orang</span></p>
+                  <ul class="text-gray-700 space-y-3 list-disc list-inside">
+                    <li class="font-bold text-gray-900">Dengan Tour Guide (Rp 25.000/org):</li>
+                    <li class="ml-4 text-sm">Guide lokal berpengalaman & P3K ringan.</li>
+                    <li class="font-bold text-gray-900">Tanpa Tour Guide (Rp 10.000/org):</li>
+                    <li class="ml-4 text-sm">Jalur tracking aman & penunjuk arah jelas.</li>
+                    <li class="text-sm">Fasilitas bersama: Free parkir & Posko istirahat.</li>
+                  </ul>
+                </div>
+                <div class="p-6 pt-0">
+                  <a href="https://wa.me/6283193755215?text=halo+kak+mau+pesan+paket1" class="block bg-yellow-500 text-gray-900 font-bold py-3 text-center rounded-full hover:bg-yellow-400 transition-colors duration-300">Pesan Tracking</a>
+                </div>
+              </div>
+
+              <!-- Paket 2: Tracking + Perahu (Boat) -->
+              <div class="package-card bg-white rounded-xl shadow-2xl overflow-hidden flex flex-col border border-yellow-200 relative">
+                <span class="absolute top-0 right-0 bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-bl-lg">KOMBO FAVORIT</span>
+                <div class="bg-gray-800 text-white p-6 text-center">
+                  <h4 class="text-2xl font-extrabold">Tracking + Boat</h4>
+                  <p class="text-sm font-medium text-yellow-400">Kombinasi Darat & Air</p>
+                </div>
+                <div class="p-6 flex-grow">
+                  <p class="text-4xl font-extrabold text-red-600 text-center mb-4">Rp 50.000<span class="text-lg font-normal text-gray-500">/orang</span></p>
+                  <ul class="text-gray-700 space-y-3 list-disc list-inside">
+                    <li>Pergi: Tracking (jalan kaki).</li>
+                    <li>Pulang: Perahu (jalur laut).</li>
+                    <li>Termasuk: Guide lokal & Pelampung standar (wajib).</li>
+                    <li>Cocok untuk: Ingin merasakan dua pengalaman jalur berbeda.</li>
+                  </ul>
+                </div>
+                <div class="p-6 pt-0">
+                  <a href="https://wa.me/6283193755215?text=halo+kak+mau+pesan+paket+kombinasi" class="block bg-red-500 text-white font-bold py-3 text-center rounded-full hover:bg-red-600 transition-colors duration-300">Pesan Paket Kombinasi</a>
+                </div>
+              </div>
+
+              <!-- Paket 3: Perahu (Boat) Full -->
+              <div class="package-card bg-white rounded-xl shadow-2xl overflow-hidden flex flex-col border border-yellow-200">
+                <div class="bg-gray-800 text-white p-6 text-center">
+                  <h4 class="text-2xl font-extrabold">Paket Boat Full (PP)</h4>
+                  <p class="text-sm font-medium text-yellow-400">Nyaman Lewat Laut</p>
+                </div>
+                <div class="p-6 flex-grow">
+                  <p class="text-4xl font-extrabold text-yellow-600 text-center mb-4">Rp 65.000<span class="text-lg font-normal text-gray-500">/orang</span></p>
+                  <ul class="text-gray-700 space-y-3 list-disc list-inside">
+                    <li>Perjalanan: Pergi & Pulang naik perahu (boat).</li>
+                    <li>Termasuk: Guide lokal pendamping.</li>
+                    <li>Wajib: Pelampung standar dipakai di perahu.</li>
+                    <li>Bonus: Penjelasan spot menarik sepanjang rute perahu.</li>
+                  </ul>
+                </div>
+                <div class="p-6 pt-0">
+                  <a href="https://wa.me/6283193755215?text=halo+kak+mau+pesan+paketbl+boat+full" class="block bg-yellow-500 text-gray-900 font-bold py-3 text-center rounded-full hover:bg-yellow-400 transition-colors duration-300">Pesan Boat Full</a>
+                </div>
+              </div>
             </div>
-            <!-- Paket 2 -->
-            <div class="bg-yellow-500 text-gray-900 rounded-lg shadow-xl border-t-4 border-gray-800 p-8 text-center flex flex-col transform md:scale-105">
-              <span class="absolute top-0 -translate-y-1/2 left-1/2 -translate-x-1/2 bg-gray-800 text-white text-sm font-bold px-3 py-1 rounded-full">POPULER</span>
-              <h3 class="text-2xl font-bold mb-2">Sunset Hunter</h3>
-              <p class="text-4xl font-bold my-4">Rp 350.000<span class="text-lg font-normal">/pax</span></p>
-              <ul class="mb-8 space-y-2 flex-grow">
-                <li>Semua di Paket One Day</li>
-                <li><strong>Snack & Kopi Senja</strong></li>
-                <li><strong>Sesi Foto Golden Hour</strong></li>
-                <li>Pemandu Lokal</li>
-              </ul>
-              <a href="#" class="mt-auto bg-gray-800 text-white font-bold py-3 px-8 rounded-full hover:bg-gray-700 transition-colors duration-300">Pesan Sekarang</a>
+
+            <!-- SECTION CAMPING GROUND -->
+            <h3 class="text-3xl font-display font-bold text-gray-900 mb-8 border-l-4 border-yellow-600 pl-4">B. Paket Camping Ground (2 Hari 1 Malam)</h3>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <!-- Paket Camping 1: Bawa Tenda Sendiri -->
+              <div class="package-card bg-white rounded-xl shadow-2xl overflow-hidden flex flex-col border border-green-200">
+                <div class="bg-green-700 text-white p-6 text-center">
+                  <h4 class="text-2xl font-extrabold">Camping - Tenda Pribadi</h4>
+                  <p class="text-sm font-medium text-green-300">Bawa Perlengkapan Sendiri</p>
+                </div>
+                <div class="p-6 flex-grow">
+                  <p class="text-4xl font-extrabold text-green-600 text-center mb-4">Rp 50.000<span class="text-lg font-normal text-gray-500">/orang</span></p>
+                  <ul class="text-gray-700 space-y-3 list-disc list-inside">
+                    <li>Lokasi camping ground aman & nyaman.</li>
+                    <li>Guide pendamping (menunjukkan area & membantu setup).</li>
+                    <li>Fasilitas: Area api unggun sederhana & Kotak P3K.</li>
+                    <li class="font-bold text-red-500">TIDAK TERMASUK: Tenda, Perlengkapan tidur, Makan & Minum.</li>
+                  </ul>
+                </div>
+                <div class="p-6 pt-0">
+                  <a href="https://wa.me/6283193755215?text=halo+kak+mau+pesan+paket+camping+1" class="block bg-green-500 text-white font-bold py-3 text-center rounded-full hover:bg-green-600 transition-colors duration-300">Pesan Slot Camping</a>
+                </div>
+              </div>
+
+              <!-- Paket Camping 2: Sewa Tenda Pokdarwis -->
+              <div class="package-card bg-white rounded-xl shadow-2xl overflow-hidden flex flex-col border border-green-200 relative">
+                <span class="absolute top-0 right-0 bg-yellow-500 text-gray-900 text-xs font-bold px-3 py-1 rounded-bl-lg">PAKET LENGKAP</span>
+                <div class="bg-green-700 text-white p-6 text-center">
+                  <h4 class="text-2xl font-extrabold">Camping - Sewa Tenda Pokdarwis</h4>
+                  <p class="text-sm font-medium text-green-300">Semua Sudah Disiapkan</p>
+                </div>
+                <div class="p-6 flex-grow">
+                  <p class="text-4xl font-extrabold text-yellow-600 text-center mb-4">Rp 150.000<span class="text-lg font-normal text-gray-500">/orang</span></p>
+                  <ul class="text-gray-700 space-y-3 list-disc list-inside">
+                    <li>Lokasi camping ground & **Sewa Tenda Pokdarwis** (isi 2–4 org/tenda).</li>
+                    <li>Matras sederhana (tergantung jumlah orang).</li>
+                    <li>Tambahan: 1 Hammock untuk bersantai.</li>
+                    <li>Pelayanan: Guide & Bantuan setup tenda.</li>
+                    <li>Fasilitas: Kotak P3K kecil.</li>
+                  </ul>
+                </div>
+                <div class="p-6 pt-0">
+                  <a href="https://wa.me/6283193755215?text=halo+kak+mau+pesan+paket+camping+2" class="block bg-yellow-500 text-gray-900 font-bold py-3 text-center rounded-full hover:bg-yellow-400 transition-colors duration-300">Pesan Paket Tenda</a>
+                </div>
+              </div>
             </div>
-            <!-- Paket 3 -->
-            <div class="bg-white rounded-lg shadow-lg border-t-4 border-yellow-500 p-8 text-center flex flex-col">
-              <h3 class="text-2xl font-bold mb-2">Jelajah Pesisir</h3>
-              <p class="text-4xl font-bold my-4">Rp 500.000<span class="text-lg font-normal">/pax</span></p>
-              <ul class="text-gray-600 mb-8 space-y-2 flex-grow">
-                <li>Semua di Paket Sunset</li>
-                <li><strong>Trip ke Pulau Cingkuak</strong></li>
-                <li><strong>Makan Malam Seafood</strong></li>
-              </ul>
-              <a href="#" class="mt-auto bg-gray-800 text-white font-bold py-3 px-8 rounded-full hover:bg-gray-700 transition-colors duration-300">Pesan Sekarang</a>
-            </div>
+            <p class="text-center text-sm text-gray-500 mt-10 italic">Catatan: Harga paket di atas untuk 1 orang (kecuali disebutkan lain) dan dapat menyesuaikan dengan jumlah rombongan (tersedia harga khusus untuk 5 dan 10 orang).</p>
           </div>
         </div>
       </section>
+
     </main>
 
     <!-- Footer -->
     <footer class="bg-gray-900 text-white py-12">
       <div class="container mx-auto px-6 text-center">
-        <h3 class="text-3xl font-display font-bold mb-4">Bukik Ameh</h3>
-        <p class="mb-8">Jelajahi keindahan emas Pesisir Selatan bersama kami.</p>
+        <h3 class="text-3xl font-display font-bold mb-4 text-yellow-400">Bukik Ameh</h3>
+        <p class="mb-8 max-w-xl mx-auto text-gray-400">Jelajahi keindahan emas Pesisir Selatan bersama kami. Rasakan kedamaian yang tak tertandingi di puncak bukit.</p>
         <div class="flex justify-center space-x-6 mb-8">
-          <a href="https://www.instagram.com/bukik.ameh?igsh=MThrc3g4OXEwbjBrcQ==" class="hover:text-yellow-400 transition-colors">Instagram</a>
-          <a href="https://www.tiktok.com/@bukik.ameh?_t=ZS-90D21FpYnO0&_r=1" class="hover:text-yellow-400 transition-colors">Tiktok</a>
-          <a href="https://www.instagram.com/ppkormawaupkk.unp?igsh=Y2Eyd3h5a3dqenhr" class="hover:text-yellow-400 transition-colors">Instagram</a>
+          <a href="https://www.instagram.com/bukik.ameh?igsh=MThrc3g4OXEwbjBrcQ==" target="_blank" class="hover:text-yellow-400 transition-colors flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-1" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.77 1.637 4.956 4.956.058 1.267.07 1.646.07 4.85s-.012 3.583-.07 4.85c-.148 3.252-1.637 4.77-4.956 4.956-1.267.058-1.646.07-4.85.07s-3.583-.012-4.85-.07c-3.252-.148-4.77-1.637-4.956-4.956-.058-1.267-.07-1.646-.07-4.85s.012-3.583.07-4.85c.148-3.252 1.637-4.77 4.956-4.956 1.267-.058 1.646-.07 4.85-.07zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.211-6.195 2.053-6.403 6.403-.058 1.28-.072 1.687-.072 4.947s.014 3.667.072 4.947c.21 4.358 2.053 6.198 6.403 6.403 1.28.058 1.687.072 4.947.072s3.667-.014 4.947-.072c4.358-.209 6.198-2.052 6.403-6.403.058-1.28.072-1.687.072-4.947s-.014-3.667-.072-4.947c-.209-4.357-2.053-6.198-6.403-6.403-1.28-.058-1.687-.072-4.947-.072zm0 8.835c-1.696 0-3.075 1.378-3.075 3.074s1.379 3.074 3.075 3.074 3.075-1.378 3.075-3.074-1.379-3.074-3.075-3.074zm0 4.991c-1.055 0-1.916-.861-1.916-1.916s.861-1.916 1.916-1.916 1.916.861 1.916 1.916-.861 1.916-1.916 1.916zm4.846-5.839c0-.495.4-.895.895-.895s.895.4.895.895-.4.895-.895.895-.895-.4-.895-.895z"/></svg>
+            Instagram
+          </a>
+          <a href="https://www.tiktok.com/@bukik.ameh?_t=ZS-90D21FpYnO0&_r=1" target="_blank" class="hover:text-yellow-400 transition-colors flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-1" fill="currentColor" viewBox="0 0 24 24"><path d="M12.3 2.1c1.1-.1 1.6.4 1.7 1.4v4.4c.5-.1 1.1-.3 1.7-.6 1.1-.6 2.5-.9 3.8-.9.7 0 1.4.1 2.1.3v4.4c-.6-.1-1.3-.2-2-.2-1.3 0-2.6.4-3.7 1.1-.5.3-1 .6-1.5.9v7.5c0 .6-.5 1.1-1.1 1.1h-2.2c-.6 0-1.1-.5-1.1-1.1v-7.5c-.5-.3-1-.6-1.5-.9-1.1-.6-2.5-1-3.8-1-1.4 0-2.8.5-3.9 1.4v-4.4c.6-.1 1.3-.2 2-.2 1.3 0 2.6.4 3.7 1.1.5.3 1 .6 1.5.9v-4.4c.1-1 1.2-1.5 2.2-1.4z"/></svg>
+            Tiktok
+          </a>
         </div>
-        <p class="text-gray-500">&copy; 2025 Pesona Bukik Ameh. All rights reserved.</p>
+        <p class="text-gray-500 text-sm">&copy; 2025 Pesona Bukik Ameh. All rights reserved.</p>
+        <p class="text-gray-500 text-xs mt-1">Dikelola oleh Pokdarwis Nagari Ampang Pulai.</p>
       </div>
     </footer>
 
@@ -239,11 +356,11 @@
       // Transparansi header saat scroll
       window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
-          header.classList.add('py-2');
-          header.classList.remove('py-4');
+          header.classList.add('py-3', 'shadow-2xl');
+          header.classList.remove('py-4', 'shadow-xl');
         } else {
-          header.classList.remove('py-2');
-          header.classList.add('py-4');
+          header.classList.remove('py-3', 'shadow-2xl');
+          header.classList.add('py-4', 'shadow-xl');
         }
       });
 
